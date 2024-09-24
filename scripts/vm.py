@@ -10,7 +10,8 @@ from urllib import request
 
 VoidFn = Callable[[], None]
 
-CHEATCODES_JSON_URL = "https://raw.githubusercontent.com/foundry-rs/foundry/master/crates/cheatcodes/assets/cheatcodes.json"
+
+CHEATCODES_JSON_URL = "/Users/ameeshaagrawal/Desktop/socket/foundry/crates/cheatcodes/assets/cheatcodes.json"
 OUT_PATH = "src/Vm.sol"
 
 VM_SAFE_DOC = """\
@@ -26,7 +27,7 @@ VM_DOC = """\
 
 
 def main():
-    json_str = request.urlopen(CHEATCODES_JSON_URL).read().decode("utf-8")
+    json_str = open(CHEATCODES_JSON_URL).read()
     contract = Cheatcodes.from_json(json_str)
 
     ccs = contract.cheatcodes
